@@ -1,2 +1,10 @@
-everything:
-CC0
+sounds:
+mheser/src/272173_5142212-lq.mp3 and sounds in sounds folder:
+CC0 (by Creeper_Ciller78, edited by DS-minetest)
+http://www.freesound.org/people/Creeper_Ciller78/sounds/272173/
+
+everything else:
+CC0 (by DS-minetest)
+
+
+CC0: https://creativecommons.org/publicdomain/zero/1.0/

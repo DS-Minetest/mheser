@@ -35,15 +35,16 @@ minetest.register_entity("mheser:ent", {
 			self.object:remove()
 			return
 		end
-		local playerpos = self.player:get_pos()
+		local look_pos = vector.add(self.player:get_pos(), vector.divide(self.player:get_eye_offset(), 10))
+		look_pos.y = look_pos.y + 1.5
 		self.sound = minetest.sound_play("mheser_sound_doing", {
 				object = self.object,
 				gain = 1.0,
 				max_hear_distance = 32,
 				loop = true,
 			})
-		for i = 0, vector.distance(pos, playerpos), 0.1 do
-			local p = vector.add(playerpos, vector.multiply(vector.direction(playerpos, pos), i))
+		for i = 0, vector.distance(pos, look_pos), 0.1 do
+			local p = vector.add(look_pos, vector.multiply(vector.direction(look_pos, pos), i))
 			minetest.add_particle({
 					pos = p,
 					velocity = {x=0, y=0, z=0},
@@ -89,6 +90,7 @@ minetest.register_entity("mheser:ent", {
 minetest.register_craftitem("mheser:handcannon",{
 	description = "Mheser",
 	inventory_image = "mheser_handcannon.png",
+	--~ wield_scale = {x = 10, y = 10, z = 10},
 	stack_max = 1,
 	range = 0,
 	on_secondary_use = function(itemstack, user, pointed_thing)
